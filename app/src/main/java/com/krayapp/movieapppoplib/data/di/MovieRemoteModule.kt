@@ -1,7 +1,7 @@
 package com.krayapp.movieapppoplib.data.di
 
 import com.google.gson.GsonBuilder
-import com.krayapp.movieapppoplib.data.RemoteInfoAccess
+import com.krayapp.movieapppoplib.data.retrofit2.RemoteInfoAccess
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -11,7 +11,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 class MovieRemoteModule {
-
     @Reusable
     @Provides
     fun getFromAPI(): RemoteInfoAccess =
