@@ -46,7 +46,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/popularTitle"
-        tools:listitem="@layout/card_template" />
+        tools:listitem="@layout/list_card_template" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_toprated"
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upcomingTitle"
-        tools:listitem="@layout/card_template"
+        tools:listitem="@layout/list_card_template"
         />
 
     <!--<include

@@ -9,33 +9,33 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface RemoteInfoAccess {
-    @GET("3/movie/popular")
+    @GET("movie/popular")
     fun getPopularMovie(
         @Query(MovieApp.TMDB_API_KEY) api_key: String,
         @Query(MovieApp.LANGUAGE) language: String
     ): Single<MovieDTO>
 
-    @GET("3/movie/top_rated")
+    @GET("movie/top_rated")
     fun getTopRatedMovie(
         @Query(MovieApp.TMDB_API_KEY) api_key: String,
         @Query(MovieApp.LANGUAGE) language: String
 
     ): Single<MovieDTO>
 
-    @GET("3/movie/upcoming")
+    @GET("movie/upcoming")
     fun getUpcomingMovie(
         @Query(MovieApp.TMDB_API_KEY) api_key: String,
         @Query(MovieApp.LANGUAGE) language: String
     ): Single<MovieDTO>
 
-    @GET("3/movie/{id}")
+    @GET("movie/{id}")
     fun loadMovieInfo(
         @Path("id") id: Int,
         @Query(MovieApp.TMDB_API_KEY) api_key: String,
         @Query(MovieApp.LANGUAGE) language: String
     ): Single<MovieInfo>
 
-    @GET("3/movie/{movie_id}/credits")
+    @GET("movie/{movie_id}/credits")
     fun loadActorList(
         @Path("movie_id")movieId:Int
     ):Single<ActorListDTO>

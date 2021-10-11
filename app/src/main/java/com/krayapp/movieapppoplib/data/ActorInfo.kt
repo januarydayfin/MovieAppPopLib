@@ -1,4 +1,4 @@
-package com.krayapp.movieapppoplib.data.DTO
+package com.krayapp.movieapppoplib.data
 
 import com.google.gson.annotations.Expose
 

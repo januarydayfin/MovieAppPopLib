@@ -21,7 +21,7 @@
             tools:text="Title" />
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/overview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_margin"
@@ -36,7 +36,7 @@
             android:id="@+id/actor_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/description"
+            app:layout_constraintBottom_toTopOf="@+id/overview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/poster_container"
             app:layout_constraintTop_toTopOf="parent"
@@ -57,7 +57,7 @@
                 android:src="@drawable/ic_imdb_logo" />
 
             <TextView
-                android:id="@+id/rate"
+                android:id="@+id/vote_average"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
