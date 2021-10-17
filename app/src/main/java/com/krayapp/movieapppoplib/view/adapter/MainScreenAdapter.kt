@@ -2,15 +2,12 @@ package com.krayapp.movieapppoplib.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.ListAdapter
 import com.krayapp.movieapppoplib.data.MovieInfo
-import com.krayapp.movieapppoplib.data.imageloader.IImageLoader
 import com.krayapp.movieapppoplib.R.layout.list_card_template
 
 class MainScreenAdapter(
-    private val delegate:Delegate?,
-    private val imageLoader:IImageLoader<ImageView>
+    private val delegate:Delegate?
     ):ListAdapter<MovieInfo,MainScreenViewHolder>(MainScreenDiff) {
     interface Delegate{
         fun onMoviePicked(movie:MovieInfo)
@@ -20,7 +17,7 @@ class MainScreenAdapter(
         MainScreenViewHolder(
             LayoutInflater
                 .from(parent.context)
-                .inflate(list_card_template,parent,false), imageLoader
+                .inflate(list_card_template,parent,false)
         )
 
     override fun onBindViewHolder(holder: MainScreenViewHolder, position: Int) {

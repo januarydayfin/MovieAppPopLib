@@ -5,6 +5,8 @@ import com.krayapp.movieapppoplib.MovieApp
 import com.krayapp.movieapppoplib.MovieListMapper
 import com.krayapp.movieapppoplib.Schedulers.ISchedulers
 import com.krayapp.movieapppoplib.data.IMovieRepo
+import com.krayapp.movieapppoplib.data.MovieInfo
+import com.krayapp.movieapppoplib.view.Screens.AboutMovieScreen
 import com.krayapp.movieapppoplib.view.mvpViews.MainView
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
@@ -24,7 +26,7 @@ class MainScreenPresenter(
         loadUpcoming()
     }
 
-    fun loadPopular() =
+    private fun loadPopular() =
         movieRepo
             .getPopularMovie(MovieApp.TMDB_API_KEY, MovieApp.LANGUAGE)
             .map(MovieListMapper::map)
@@ -35,7 +37,7 @@ class MainScreenPresenter(
             }
             .addTo(disposables)
 
-    fun loadTopRated() =
+    private fun loadTopRated() =
         movieRepo
             .getTopRatedMovie(MovieApp.TMDB_API_KEY, MovieApp.LANGUAGE)
             .map(MovieListMapper::map)
@@ -46,7 +48,7 @@ class MainScreenPresenter(
             }
             .addTo(disposables)
 
-    fun loadUpcoming() =
+    private fun loadUpcoming() =
         movieRepo
             .getUpcomingMovie(MovieApp.TMDB_API_KEY, MovieApp.LANGUAGE)
             .map(MovieListMapper::map)
@@ -56,4 +58,8 @@ class MainScreenPresenter(
                 println(Throwable("Error in Data Stream"))
             }
             .addTo(disposables)
+
+    fun showMovieInfo(movieInfo: MovieInfo){
+        router.navigateTo(AboutMovieScreen(movieInfo))
+    }
 }

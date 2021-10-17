@@ -28,7 +28,6 @@ class MovieApp :DaggerApplication(){
                 withNavigatorHolder(cicerone.getNavigatorHolder())
                 withRouter(cicerone.router)
                 withSchedulers(SimpleShedulers())
-                withImageLoader(ImageLoaderImpl())
             }
             .build()
 

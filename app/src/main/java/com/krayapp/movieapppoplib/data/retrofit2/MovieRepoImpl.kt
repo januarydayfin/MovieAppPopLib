@@ -7,10 +7,12 @@ import com.krayapp.movieapppoplib.data.retrofit2.DTO.ActorListDTO
 import com.krayapp.movieapppoplib.data.retrofit2.DTO.MovieDTO
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class RemoteInfoAccessImpl(
-    private val api: IMovieRepo
-) : RemoteInfoAccess {
+class MovieRepoImpl
+    @Inject constructor(
+    private val api: RemoteInfoAccess
+) : IMovieRepo {
     override fun getPopularMovie(api_key: String, language: String): Single<MovieDTO> =
         api.getPopularMovie(api_key, language)
 

@@ -1,7 +1,6 @@
 package com.krayapp.movieapppoplib
 
 import android.R
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
