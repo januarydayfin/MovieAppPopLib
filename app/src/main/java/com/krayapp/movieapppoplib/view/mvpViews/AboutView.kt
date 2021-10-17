@@ -7,7 +7,7 @@ import moxy.viewstate.strategy.AddToEndSingleStrategy
 import moxy.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
-interface OpenedView:MvpView {
+interface AboutView:MvpView {
     fun showInfo(movieInfo: MovieInfo)
     fun showActorList(actorList:List<ActorInfo>)
 }

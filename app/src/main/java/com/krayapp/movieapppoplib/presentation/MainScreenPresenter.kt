@@ -2,7 +2,7 @@ package com.krayapp.movieapppoplib.presentation
 
 import com.github.terrakok.cicerone.Router
 import com.krayapp.movieapppoplib.MovieApp
-import com.krayapp.movieapppoplib.MovieListMapper
+import com.krayapp.movieapppoplib.Mapper
 import com.krayapp.movieapppoplib.Schedulers.ISchedulers
 import com.krayapp.movieapppoplib.data.IMovieRepo
 import com.krayapp.movieapppoplib.data.MovieInfo
@@ -29,7 +29,7 @@ class MainScreenPresenter(
     private fun loadPopular() =
         movieRepo
             .getPopularMovie(MovieApp.TMDB_API_KEY, MovieApp.LANGUAGE)
-            .map(MovieListMapper::map)
+            .map(Mapper::mapMovieList)
             .observeOn(schedulers.main())
             .subscribeOn(schedulers.io())
             .subscribe(viewState::showPopular) {
@@ -40,7 +40,7 @@ class MainScreenPresenter(
     private fun loadTopRated() =
         movieRepo
             .getTopRatedMovie(MovieApp.TMDB_API_KEY, MovieApp.LANGUAGE)
-            .map(MovieListMapper::map)
+            .map(Mapper::mapMovieList)
             .observeOn(schedulers.main())
             .subscribeOn(schedulers.io())
             .subscribe(viewState::showTopRated) {
@@ -51,7 +51,7 @@ class MainScreenPresenter(
     private fun loadUpcoming() =
         movieRepo
             .getUpcomingMovie(MovieApp.TMDB_API_KEY, MovieApp.LANGUAGE)
-            .map(MovieListMapper::map)
+            .map(Mapper::mapMovieList)
             .observeOn(schedulers.main())
             .subscribeOn(schedulers.io())
             .subscribe(viewState::showUpcoming) {
@@ -61,5 +61,10 @@ class MainScreenPresenter(
 
     fun showMovieInfo(movieInfo: MovieInfo){
         router.navigateTo(AboutMovieScreen(movieInfo))
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposables.dispose()
     }
 }
