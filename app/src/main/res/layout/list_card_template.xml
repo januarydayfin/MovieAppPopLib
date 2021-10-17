@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="@dimen/cardCorner">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/imageCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

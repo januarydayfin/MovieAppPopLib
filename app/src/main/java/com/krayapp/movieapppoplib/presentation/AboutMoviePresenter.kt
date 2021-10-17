@@ -1,0 +1,3 @@
+package com.krayapp.movieapppoplib.presentation
+
+class AboutMoviePresenter

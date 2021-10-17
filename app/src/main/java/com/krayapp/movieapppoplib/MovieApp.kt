@@ -3,6 +3,7 @@ package com.krayapp.movieapppoplib
 import com.github.terrakok.cicerone.Cicerone
 import com.krayapp.movieapppoplib.Schedulers.SimpleShedulers
 import com.krayapp.movieapppoplib.data.di.DaggerApplicationComponent
+import com.krayapp.movieapppoplib.data.imageloader.ImageLoaderImpl
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 
@@ -27,6 +28,7 @@ class MovieApp :DaggerApplication(){
                 withNavigatorHolder(cicerone.getNavigatorHolder())
                 withRouter(cicerone.router)
                 withSchedulers(SimpleShedulers())
+                withImageLoader(ImageLoaderImpl())
             }
             .build()
 

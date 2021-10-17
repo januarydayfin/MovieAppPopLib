@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/main_fragment"
     android:layout_width="match_parent"
@@ -28,8 +27,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_popular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/popularTitle"
+            tools:listitem="@layout/list_card_template" />
     <TextView
-        android:id="@+id/upcomingTitle"
+        android:id="@+id/topRated_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/default_margin"
@@ -39,16 +47,6 @@
         app:layout_constraintTop_toBottomOf="@+id/recycler_popular" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_popular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/popularTitle"
-        tools:listitem="@layout/list_card_template" />
-
-    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_toprated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,10 +54,31 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upcomingTitle"
+        app:layout_constraintTop_toBottomOf="@+id/topRated_title"
         tools:listitem="@layout/list_card_template"
         />
 
+        <TextView
+            android:id="@+id/upcoming_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_margin"
+            android:text="@string/upcoming"
+            android:textSize="@dimen/titleSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recycler_toprated" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_upcoming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upcoming_title"
+            tools:listitem="@layout/list_card_template"
+            />
     <!--<include
         android:id="@+id/includedLoadingLayout"
         layout="@layout/loading_layout" />-->
