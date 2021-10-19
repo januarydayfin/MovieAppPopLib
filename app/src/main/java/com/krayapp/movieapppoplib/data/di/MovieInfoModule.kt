@@ -21,7 +21,6 @@ interface MovieInfoModule {
     @ContributesAndroidInjector
     fun bindAboutMovieFragment(): AboutMovieFragment
 
-
     @Binds
     fun bindMovieRepo(movieRepo:MovieRepoImpl):IMovieRepo
 

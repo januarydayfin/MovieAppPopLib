@@ -11,7 +11,7 @@ import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 
 
-@Component(modules = [AndroidInjectionModule::class, MovieInfoModule::class, MovieRemoteModule::class])
+@Component(modules = [AndroidInjectionModule::class, MovieInfoModule::class, MovieRemoteModule::class, MovieCacheModule::class])
 interface ApplicationComponent:AndroidInjector<MovieApp> {
 
     @Component.Builder
