@@ -35,7 +35,8 @@ class AboutMoviePresenter(
             .observeOn(schedulers.main())
             .subscribeOn(schedulers.io())
             .subscribe(viewState::showActorList)
-            { viewState.showActorList(listOf(ActorInfo("Список не загружен")))}
+            { viewState.showActorList(listOf(ActorInfo("Список не загружен")))
+            viewState.showErrorToast("Для загрузки списка актеров необходимо интернет соединение")}
             .addTo(disposables)
     }
 

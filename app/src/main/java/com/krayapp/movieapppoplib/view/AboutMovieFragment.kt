@@ -2,6 +2,7 @@ package com.krayapp.movieapppoplib.view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -68,5 +69,9 @@ class AboutMovieFragment : AbsFragment(about_movie), AboutView {
 
     override fun showActorList(actorList: List<ActorInfo>) {
         actorListAdapter.submitList(actorList)
+    }
+
+    override fun showErrorToast(text: String) {
+        Toast.makeText(context,text,Toast.LENGTH_SHORT).show()
     }
 }

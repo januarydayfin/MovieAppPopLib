@@ -10,4 +10,5 @@ import moxy.viewstate.strategy.StateStrategyType
 interface AboutView:MvpView {
     fun showInfo(movieInfo: MovieInfo)
     fun showActorList(actorList:List<ActorInfo>)
+    fun showErrorToast(text:String)
 }
