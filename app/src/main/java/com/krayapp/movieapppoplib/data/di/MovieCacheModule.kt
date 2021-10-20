@@ -13,5 +13,6 @@ class MovieCacheModule {
     @Provides
     fun provideStorage(context: Context):MovieDatabase =
         Room.databaseBuilder(context, MovieDatabase::class.java, "moviedb.db")
+            .allowMainThreadQueries()
             .build()
 }

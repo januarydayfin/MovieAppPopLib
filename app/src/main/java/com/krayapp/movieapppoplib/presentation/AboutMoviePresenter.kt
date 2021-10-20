@@ -3,6 +3,7 @@ package com.krayapp.movieapppoplib.presentation
 import com.krayapp.movieapppoplib.Mapper
 import com.krayapp.movieapppoplib.MovieApp
 import com.krayapp.movieapppoplib.Schedulers.ISchedulers
+import com.krayapp.movieapppoplib.data.ActorInfo
 import com.krayapp.movieapppoplib.data.IMovieRepo
 import com.krayapp.movieapppoplib.data.MovieInfo
 import com.krayapp.movieapppoplib.data.cache.ICacheMovieRepo
@@ -22,7 +23,8 @@ class AboutMoviePresenter(
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         loadActorList()
-        movieDb.insertMovie(movie)
+        movieDb.
+        insertMovie(movie)
     }
 
     private fun loadActorList(){
@@ -32,9 +34,8 @@ class AboutMoviePresenter(
             .map (Mapper::mapActorList)
             .observeOn(schedulers.main())
             .subscribeOn(schedulers.io())
-            .subscribe(viewState::showActorList){
-                println(Throwable("Error in Load Actor Stream"))
-            }
+            .subscribe(viewState::showActorList)
+            { viewState.showActorList(listOf(ActorInfo("Список не загружен")))}
             .addTo(disposables)
     }
 
