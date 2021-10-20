@@ -11,7 +11,7 @@ import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 
 
-@Component(modules = [AndroidInjectionModule::class, MovieRemoteModule::class])
+@Component(modules = [AndroidInjectionModule::class, MovieInfoModule::class, MovieRemoteModule::class])
 interface ApplicationComponent:AndroidInjector<MovieApp> {
 
     @Component.Builder
@@ -27,6 +27,7 @@ interface ApplicationComponent:AndroidInjector<MovieApp> {
 
         @BindsInstance
         fun withSchedulers(schedulers: ISchedulers): Builder
+
 
         fun build(): ApplicationComponent
     }
