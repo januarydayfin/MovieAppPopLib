@@ -8,4 +8,5 @@ import io.reactivex.Single
 interface ICacheMovieRepo {
     fun getFavoriteMoviesCache(): Single<List<MovieInfo>>
     fun insertMovie(movieInfo: MovieInfo)
+    fun cleanHistory()
 }

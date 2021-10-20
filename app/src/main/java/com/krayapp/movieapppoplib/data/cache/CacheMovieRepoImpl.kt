@@ -1,7 +1,6 @@
 package com.krayapp.movieapppoplib.data.cache
 
 import com.krayapp.movieapppoplib.data.MovieInfo
-import com.krayapp.movieapppoplib.data.retrofit2.DTO.ActorListDTO
 import io.reactivex.Single
 import javax.inject.Inject
 
@@ -17,5 +16,9 @@ class CacheMovieRepoImpl
 
     override fun insertMovie(movieInfo: MovieInfo) =
         database.movieDAO.insertMovie(movieInfo)
+
+    override fun cleanHistory() {
+        database.movieDAO.cleanTable()
+    }
 
 }

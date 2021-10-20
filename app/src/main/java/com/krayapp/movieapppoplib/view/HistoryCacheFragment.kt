@@ -2,6 +2,7 @@ package com.krayapp.movieapppoplib.view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.github.terrakok.cicerone.Router
 import com.krayapp.movieapppoplib.view.abs.AbsFragment
@@ -39,6 +40,10 @@ class HistoryCacheFragment : AbsFragment(history_cache_fragment), HistoryCacheVi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewBinding.recyclerCache.adapter = adapter
+        viewBinding.cleanHistory.setOnClickListener{
+            presenter.clearHistory()
+            Toast.makeText(context,"Clear Success", Toast.LENGTH_SHORT).show()
+        }
     }
     override fun showCache(movieList: List<MovieInfo>) {
         adapter.submitList(movieList)

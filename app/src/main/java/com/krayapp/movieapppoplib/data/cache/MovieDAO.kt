@@ -14,12 +14,10 @@ interface MovieDAO {
     @Query("SELECT * FROM MovieList")
     fun getFavoriteMoviesCache(): Single<List<MovieInfo>>
 
-/*    @Query("SELECT * FROM actor_list WHERE movieId = movieId")
-    fun getActorList(movieId:Int):Single<List<ActorListDTO>>*/
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertMovie(movieInfo: MovieInfo)
 
-    /*@Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertActorList(actorListDTO: ActorListDTO)*/
+    @Query("DELETE FROM MovieList")
+    fun cleanTable()
+
 }

@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/favorite_movies"
+        android:text="@string/history"
         android:textSize="@dimen/titleSize"
         android:padding="@dimen/default_margin"
         app:layout_constraintBottom_toTopOf="@+id/recycler_cache"
@@ -25,4 +25,17 @@
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/movie_card_template"/>
+
+    <Button
+        style="@style/defaultStyle"
+        android:id="@+id/clean_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparentColor"
+        android:drawableTop="@drawable/ic_recycle"
+        android:text="@string/clear_history"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_cache" />
 </androidx.constraintlayout.widget.ConstraintLayout>

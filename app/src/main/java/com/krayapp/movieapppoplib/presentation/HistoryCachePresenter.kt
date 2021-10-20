@@ -36,7 +36,13 @@ class HistoryCachePresenter(
         super.onDestroy()
         disposables.dispose()
     }
+
     fun showMovieInfo(movie:MovieInfo){
         router.navigateTo(AboutMovieScreen(movie))
+    }
+
+    fun clearHistory(){
+        localRepo.cleanHistory()
+        viewState.showCache(listOf())
     }
 }
