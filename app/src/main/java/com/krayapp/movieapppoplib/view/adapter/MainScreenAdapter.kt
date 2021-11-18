@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.krayapp.movieapppoplib.data.MovieInfo
-import com.krayapp.movieapppoplib.R.layout.list_card_template
+import com.krayapp.movieapppoplib.R.layout.movie_card_template
 
 class MainScreenAdapter(
     private val delegate:Delegate?
@@ -17,7 +17,7 @@ class MainScreenAdapter(
         MainScreenViewHolder(
             LayoutInflater
                 .from(parent.context)
-                .inflate(list_card_template,parent,false)
+                .inflate(movie_card_template,parent,false)
         )
 
     override fun onBindViewHolder(holder: MainScreenViewHolder, position: Int) {

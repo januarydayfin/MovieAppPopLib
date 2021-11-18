@@ -9,9 +9,10 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
+import javax.inject.Singleton
 
-
-@Component(modules = [AndroidInjectionModule::class, MovieInfoModule::class, MovieRemoteModule::class])
+@Singleton
+@Component(modules = [AndroidInjectionModule::class, MovieInfoModule::class, MovieRemoteModule::class, MovieCacheModule::class])
 interface ApplicationComponent:AndroidInjector<MovieApp> {
 
     @Component.Builder

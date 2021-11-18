@@ -2,6 +2,7 @@ package com.krayapp.movieapppoplib.view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -12,6 +13,7 @@ import com.krayapp.movieapppoplib.Schedulers.ISchedulers
 import com.krayapp.movieapppoplib.data.ActorInfo
 import com.krayapp.movieapppoplib.data.IMovieRepo
 import com.krayapp.movieapppoplib.data.MovieInfo
+import com.krayapp.movieapppoplib.data.cache.CacheMovieRepoImpl
 import com.krayapp.movieapppoplib.data.imageloader.ImageLoaderImpl
 import com.krayapp.movieapppoplib.databinding.AboutMovieBinding
 import com.krayapp.movieapppoplib.presentation.AboutMoviePresenter
@@ -37,15 +39,19 @@ class AboutMovieFragment : AbsFragment(about_movie), AboutView {
     lateinit var schedulers: ISchedulers
 
     @Inject
-
     lateinit var movieRepo: IMovieRepo
+
+    @Inject
+    lateinit var cacheMovieRepoImpl: CacheMovieRepoImpl
+
     private val viewBinding: AboutMovieBinding by viewBinding()
     private var actorListAdapter = ActorListAdapter()
     private val presenter by moxyPresenter {
         AboutMoviePresenter(
             arguments?.getParcelable(ARG_KEY)!!,
             movieRepo,
-            schedulers
+            schedulers,
+            cacheMovieRepoImpl
         )
     }
 
@@ -63,5 +69,9 @@ class AboutMovieFragment : AbsFragment(about_movie), AboutView {
 
     override fun showActorList(actorList: List<ActorInfo>) {
         actorListAdapter.submitList(actorList)
+    }
+
+    override fun showErrorToast(text: String) {
+        Toast.makeText(context,text,Toast.LENGTH_SHORT).show()
     }
 }
